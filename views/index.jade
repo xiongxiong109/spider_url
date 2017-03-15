@@ -1,0 +1,11 @@
+extends layout
+
+block content
+	h1 #{title}
+	form(action="/" method="post")
+		input(type="text" id="getUrl" name="url" placeholder="请输入要爬取的网站url")
+		if (content.length)
+			- for (let item = 0; item < content.length; item ++)
+					p #{content[item]}
+		else
+			p 暂无数据
