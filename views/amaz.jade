@@ -1,0 +1,10 @@
+extends layout
+
+block content
+	h1 #{title}
+	each items in data
+		h4 查询值: #{items.query}
+		if items.list
+			ul
+				each asin in items.list
+					li data-asin: #{asin}
