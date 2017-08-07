@@ -1,0 +1,29 @@
+//- 爬取daysservices
+extends layout
+block css
+	style.
+		.code {
+			cursor: pointer;
+		}
+block js
+	script.
+		var oCode = document.querySelector('.code');
+		var url = '#{daysHost}/Card/GetImg';
+		var ID = '1';
+		oCode.onclick = (e) => {
+			ID += '1';
+			var src = url + '?ID=' + ID;
+			oCode.src = src;
+		}
+block content
+	- let daysHost = 'http://www.daysservices.com';
+	p CardNo: 卡号
+	p ValiString: 验证码号
+	p get to: 
+	p #{daysHost}/Site/Card/Balance?CardNo=${cardNo}&ValiString=${vCode}
+	p 获取.result#cardbalance的innerText
+	form(action="/daysservices", method="get", name="cardForm")
+		input(type="number", name="CardNo", placeholder="8880250192160815402")
+		input(type="number", name="ValiString", placeholder="输入验证码")
+		img.code(src="#{daysHost}/Card/GetImg?ID=1")
+		input(type="submit", value="查询")
