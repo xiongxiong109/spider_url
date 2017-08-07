@@ -16,6 +16,7 @@ router.get('/', async (req, res, next) => {
 		} catch (err) {
 			rst = err;
 		}
+		console.log(rst);
 	}
 	res.render('daysservices', {title: 'daysservices', rst});
 });

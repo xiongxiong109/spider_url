@@ -11,6 +11,9 @@ export default (req, res, next) => {
 		axios({
 			method: 'post',
 			timeout: 8000,
+			headers: {
+				'X-Frame-Options':'SAMEORIGIN'
+			},
 			url: `${path}?CardNo=${CardNo}&ValiString=${ValiString}`
 		})
 		.then(rst => {
